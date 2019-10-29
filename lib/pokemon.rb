@@ -19,6 +19,8 @@ class Pokemon
     type = pokemon[2]
     db = pokemon[3]
     
+    pokemon_inst = Pokemon.new(id: id, name: name, type: type, db: database_connection)
+  end
 
 
 end
