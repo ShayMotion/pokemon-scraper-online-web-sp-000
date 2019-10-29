@@ -13,11 +13,12 @@ class Pokemon
       db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?);", name, type)
     end 
 
-  def self.find(id, db)
-  
-  found_pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?", :id).flatten
- Pokemon.new*(:id found_pokemon[0], :name found_pokemon[1], :type found_pokemon[2], :db db)
-  end
+    def self.find(id, database_connection)
+    pokemon = database_connection.execute("SELECT * FROM pokemon WHERE id = ?", id).flatten
+    name = pokemon[1]
+    type = pokemon[2]
+    hp = pokemon[3]
+    
 
 
 end
